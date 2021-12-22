@@ -3,8 +3,6 @@ import React from 'react';
 import person from '../../../images/headphone_girl.png'
 
 const Banner = () => {
-    const bgColor = `linear - gradient(90deg, rgba(86, 164, 227, 1) 0 %, rgba(249, 59, 238, 0.989233193277311) 97 %);`
-
     return (
         <>
             <Container fixed sx={{ paddingTop: 4 }}>
@@ -33,10 +31,8 @@ const Banner = () => {
                             Play Now
                         </Button>
                     </Grid>
-                    <Grid sx={{ overflow: 'hidden', display: 'flex', justifyContent: 'center' }}
-                        item xs={12} md={6}>
-                        <img style={{ width: '90%', transform: 'scale(1.1)' }} src={person}
-                            alt="a girl wearing headphone" />
+                    <Grid sx={{ overflow: 'hidden', display: 'flex', justifyContent: 'center' }} item xs={12} md={6}>
+                        <img style={{ maxWidth: '90%' }} src={person} alt="a girl wearing headphone" />
                     </Grid>
                 </Grid>
             </Container>
