@@ -11,7 +11,7 @@ import Divider from "@mui/material/Divider";
 import IconButton from '@mui/material/IconButton';
 import { NavLink } from 'react-router-dom';
 
-import { Grid, Icon } from '@mui/material';
+import { Badge, Grid, Icon } from '@mui/material';
 
 const Navbar = () => {
     const [state, setState] = React.useState(false);
@@ -51,15 +51,23 @@ const Navbar = () => {
                                 Muzify
                             </Typography>
                         </Box>
-                        {/* <Box sx={{}}>
-                            <NavLink style={linkStyles} to="/login"><Button color="inherit">Login</Button></NavLink>
-                            <NavLink style={linkStyles} to="/signup"><Button color="inherit">Sign Up</Button></NavLink>
-                        </Box> */}
-                        <Box sx={{ px: { xs: 1, md: 3 } }}>
-                            <IconButton onClick={() => setState(true)} size="large" edge="start" color="inherit" aria-label="menu" >
-                                <Icon>menu</Icon>
-                            </IconButton>
 
+                        <Box sx={{ px: { xs: 1, md: 3 } }}>
+                            <Badge
+                                sx={{
+                                    color: '#e7e7e7',
+                                    mr: 2,
+                                    "& .MuiBadge-badge": {
+                                        color: "white",
+                                        background: "linear-gradient(90deg, rgba(73,167,237,1) 0%, rgba(218,60,238,0.989233193277311) 100%);"
+                                    }
+                                }}
+                                badgeContent={4} color="secondary">
+                                <Icon sx={{ fontSize: 30 }}>library_music</Icon>
+                            </Badge>
+                            <IconButton onClick={() => setState(true)} size="large" edge="start" color="inherit" aria-label="menu" >
+                                <Icon sx={{ fontSize: 30, color: '#e7e7e7' }}>menu</Icon>
+                            </IconButton>
                         </Box>
                     </Toolbar>
                 </AppBar>

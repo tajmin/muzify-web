@@ -18,12 +18,16 @@ const MyPlayer = () => {
     }, [songs])
 
     const drawer = (
-        <Box sx={{ width: { xs: 225, lg: 400 } }} role="presentation">
+        <Box onClick={() => setDrawerState(false)} sx={{ width: { xs: 225, lg: 400 } }} role="presentation">
             <Button>Home</Button>
             <Grid container spacing={1}>
                 {
-                    songs?.map((song, id) => <Grid item xs={12}>
-                        <LibrarySong key={song._id} props={song}></LibrarySong>
+                    songs?.map(song => <Grid key={song._id} item xs={12}>
+                        <LibrarySong
+                            song={song}
+                            songs={songs}
+                            setCurrentSong={setCurrentSong}
+                        ></LibrarySong>
                     </Grid>)
                 }
 

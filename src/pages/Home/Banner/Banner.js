@@ -20,7 +20,7 @@ const Banner = () => {
                         <Typography variant="h3" component="div" fontSize={{ lg: 50, xs: 30 }}
                             sx={{
                                 fontWeight: 'bold',
-                                color: '#cfd8dc',
+                                color: '#c0c0c0',
                                 textAlign: { xs: 'center', lg: 'left' },
                                 marginY: 2
                             }}

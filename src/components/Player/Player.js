@@ -74,8 +74,8 @@ const Player = ({ currentSong, setIsPlaying, isPlaying }) => {
                     <Icon sx={{ fontSize: 40, cursor: 'pointer' }}>skip_previous</Icon>
 
                     {
-                        isPlaying ? (<Icon onClick={handlePlaySong}
-                            sx={{ fontSize: 60, cursor: 'pointer' }}>pause</Icon>)
+                        isPlaying ? <Icon onClick={handlePlaySong}
+                            sx={{ fontSize: 60, cursor: 'pointer' }}>pause</Icon>
                             :
                             (<Icon onClick={handlePlaySong}
                                 sx={{ fontSize: 60, cursor: 'pointer' }}>play_arrow</Icon>)

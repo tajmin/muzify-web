@@ -3,12 +3,17 @@ import { blueGrey, grey } from '@mui/material/colors';
 import { Box } from '@mui/system';
 import React from 'react';
 
-const LibrarySong = ({ props }) => {
-    const { title, cover, artist } = props;
+const LibrarySong = ({ song, setCurrentSong, songs }) => {
+    const { title, cover, artist } = song;
     const textBluGrey = blueGrey[700];
     const bgBlueGrey = grey[50];
+
+    const handleSelectSong = () => {
+        // const selectedSong = songs.filter((item) => item._id === song._id)
+        setCurrentSong(song)
+    }
     return (
-        <>
+        <Box onClick={handleSelectSong}>
             <Grid container
                 sx={{
                     paddingX: 3,
@@ -49,7 +54,7 @@ const LibrarySong = ({ props }) => {
                     </Box>
                 </Grid>
             </Grid>
-        </>
+        </Box>
     );
 };
 
