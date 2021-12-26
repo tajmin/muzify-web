@@ -1,11 +1,12 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Shared/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import MyPlayer from './pages/MyPlayer/MyPlayer';
 
+
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>

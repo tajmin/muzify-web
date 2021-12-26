@@ -1,5 +1,6 @@
 import { Button, Container, Grid, Icon, Typography } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import person from '../../../images/headphone_girl.png'
 
 const Banner = () => {
@@ -27,7 +28,7 @@ const Banner = () => {
                         >
                             Your Personal Music Library
                         </Typography>
-                        <Button className='heroButton' sx={{ borderRadius: '1.5rem', paddingX: 2.5, paddingY: 1.25 }} variant="contained" size="large" endIcon={<Icon>play_arrow</Icon>}>
+                        <Button component={Link} to={'/my-player'} className='gradientThemeBg' sx={{ borderRadius: '1.5rem', paddingX: 2.5, paddingY: 1.25 }} variant="contained" size="large" endIcon={<Icon>play_arrow</Icon>}>
                             Play Now
                         </Button>
                     </Grid>

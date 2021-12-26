@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
 import React from 'react';
+import musicSign from '../../images/music_placeholder.png'
 
 const Song = ({ currentSong }) => {
     const textBluGrey = blueGrey[800];
@@ -14,17 +15,17 @@ const Song = ({ currentSong }) => {
                 justifyContent: 'center',
                 padding: 2
             }}>
-                <img className="album-cover" src={currentSong?.cover} alt="album cover" />
-                <Typography variant="h4" component="div" fontSize={{ lg: 50, xs: 25 }}
+                <img className="album-cover" src={currentSong ? currentSong?.cover : musicSign} alt="album cover" />
+                <Typography variant="h1" component="div" fontSize={{ lg: 50, xs: 25 }}
                     sx={{
                         fontWeight: 'bold',
                         color: textBluGrey,
                         marginTop: 4
                     }}
                 >
-                    {currentSong?.title}
+                    {currentSong ? currentSong?.title : 'Please select a song'}
                 </Typography>
-                <Typography variant="h6" component="div" fontSize={{ lg: 25, xs: 15 }}
+                <Typography variant="h2" component="div" fontSize={{ lg: 20, xs: 15 }}
                     sx={{
                         fontWeight: 'bold',
                         color: textBluGrey,
