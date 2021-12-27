@@ -45,7 +45,7 @@ const Single = ({ single }) => {
                     </Fab>
                 </Tooltip>
             </Box>
-            <Typography variant="h4" component="div" fontSize={{ lg: 20, xs: 15 }}
+            <Typography variant="h4" component="div" fontSize={{ lg: 25, xs: 20 }}
                 sx={{
                     color: grey[300],
                     pt: 2

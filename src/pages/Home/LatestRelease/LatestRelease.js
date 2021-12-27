@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { Box, Container, Divider, Grid, Typography } from '@mui/material';
-import { grey } from '@mui/material/colors';
+import { grey, lightBlue } from '@mui/material/colors';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllSongs } from '../../../redux/slices/songSlice';
 import Single from '../../../components/Single/Single';
+import { useNavigate } from 'react-router-dom';
 
 const NewRelease = () => {
     const singles = useSelector((state) => state.songs.songs);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(fetchAllSongs())
@@ -15,7 +17,7 @@ const NewRelease = () => {
 
     return (
         <Box sx={{ backgroundColor: '#000', py: 4 }}>
-            <Container sx={{ px: 4 }}>
+            <Container sx={{ px: { xs: 6, lg: 4 } }}>
                 <Typography variant="h4" component="div" fontSize={{ lg: 20, xs: 15 }}
                     sx={{
                         color: grey[300],
@@ -25,7 +27,7 @@ const NewRelease = () => {
                 >
                     Latest Release
                 </Typography>
-                <Typography variant="h1" component="div" fontSize={{ lg: 50, xs: 25 }}
+                <Typography variant="h1" component="div" fontSize={{ lg: 50, xs: 30 }}
                     sx={{
                         fontWeight: 'bold',
                         color: grey[100],
@@ -40,10 +42,30 @@ const NewRelease = () => {
                             singles.map(single => <Grid key={single._id} item xs={12} lg={4}>
                                 <Single single={single}>
                                 </Single>
-                            </Grid>).slice(0, 3)
+                            </Grid>).slice(0, 6)
                         }
                     </Grid>
                 </Box>
+                <Typography
+                    onClick={() => navigate('/login')}
+                    variant="h4"
+                    component="div"
+                    fontSize={{ lg: 20, xs: 15 }}
+                    sx={{
+                        color: lightBlue[800],
+                        pt: 10,
+                        pb: 5,
+                        textAlign: 'right',
+                        textDecoration: 'underline',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease-in',
+                        '&:hover': {
+                            color: lightBlue[400],
+                        }
+                    }}
+                >
+                    Discover More
+                </Typography>
             </Container>
         </Box>
     );

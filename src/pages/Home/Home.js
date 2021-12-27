@@ -1,4 +1,4 @@
-import { Badge, Box, Icon, IconButton } from '@mui/material';
+import { Badge, Box, Icon } from '@mui/material';
 import React from 'react';
 import Navbar from '../../components/Shared/Navbar/Navbar';
 import Banner from './Banner/Banner';
@@ -8,6 +8,7 @@ import LatestRelease from './LatestRelease/LatestRelease';
 import { grey, red } from '@mui/material/colors';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearPlayList } from '../../redux/slices/songSlice';
+import LatestNews from './LatestNews/LatestNews';
 
 const Home = () => {
     const myPlayList = useSelector((state) => state.songs.myPlaylist);
@@ -24,7 +25,7 @@ const Home = () => {
                 sx={{
                     position: 'fixed',
                     top: '50%',
-                    right: '2%',
+                    right: '3%',
                     backgroundColor: grey[100],
                     py: 2.25,
                     px: 1,
@@ -65,6 +66,7 @@ const Home = () => {
                 </Icon>
             </Box>
             <LatestRelease></LatestRelease>
+            <LatestNews></LatestNews>
             <Footer></Footer>
         </>
     );
