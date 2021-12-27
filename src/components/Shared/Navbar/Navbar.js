@@ -97,7 +97,7 @@ const Navbar = () => {
                             fontSize={{ lg: 100, xs: 50 }} variant="h1" component="div">
                             My Player
                         </Typography>
-                        <Typography as={Link} to={'/my-player'}
+                        <Typography as={Link} to={'/my-playlist'}
                             sx={{
                                 fontWeight: 'bold',
                                 color: amber[400],
@@ -110,7 +110,7 @@ const Navbar = () => {
                                 }
                             }}
                             fontSize={{ lg: 100, xs: 50 }} variant="h1" component="div">
-                            Playlist
+                            My Playlist
                         </Typography>
 
                         {user?.email && <Typography onClick={logout}

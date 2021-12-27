@@ -1,29 +1,59 @@
-import { Button, Drawer, Grid, Icon, IconButton, Box } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { Box, Button, Drawer, Grid, Icon } from '@mui/material';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import LibrarySong from '../../components/LibrarySong/LibrarySong';
 import Player from '../../components/Player/Player';
 import Song from '../../components/Song/Song';
-import { fetchAllSongs } from '../../redux/slices/songSlice';
+import useAuth from '../../hooks/useAuth';
 import spinner from '../../images/spinner.gif'
+import { clearPlayList } from '../../redux/slices/songSlice';
 
-const MyPlayer = () => {
-    const songs = useSelector((state) => state.songs.songs);
-    const isLoading = useSelector((state) => state.songs.isLoading);
-    const dispatch = useDispatch();
-    const [currentSong, setCurrentSong] = useState();
+const MyPlaylist = () => {
+    const songs = useSelector((state) => state.songs.myPlaylist);
+    const { isLoading } = useAuth;
+    const [currentSong, setCurrentSong] = useState(songs[0]);
     const [drawerState, setDrawerState] = React.useState(false);
-    const [isPlaying, setIsPlaying] = useState(false)
+    const [isPlaying, setIsPlaying] = useState(false);
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchAllSongs())
-        setCurrentSong(songs[0])
-    }, [])
 
     const drawer = (
         <Box onClick={() => setDrawerState(false)} sx={{ width: { xs: 225, lg: 400 } }} role="presentation">
-            <Button>Home</Button>
+            <Button onClick={() => dispatch(clearPlayList())}
+                sx={{
+                    my: 2,
+                    ml: 1,
+                    border: '1px solid black',
+                    color: 'black',
+                    transition: 'all 0.3s ease-out',
+                    '&:hover': {
+                        border: '1px solid black',
+                        backgroundColor: 'black',
+                        color: 'white',
+                    }
+                }}
+                variant="outlined" endIcon={<Icon>delete</Icon>}>
+                Clear
+            </Button>
+
+            <Button component={Link} to={'/'}
+                sx={{
+                    my: 2,
+                    float: 'right',
+                    mr: 1,
+                    border: '1px solid black',
+                    color: 'black',
+                    transition: 'all 0.3s ease-out',
+                    '&:hover': {
+                        border: '1px solid black',
+                        backgroundColor: 'black',
+                        color: 'white',
+                    }
+                }}
+                variant="outlined">
+                Home
+            </Button>
             <Grid container spacing={1}>
                 {
                     songs?.map(song => <Grid key={song._id} item xs={12}>
@@ -55,8 +85,8 @@ const MyPlayer = () => {
 
     return (
         <Box sx={{ position: 'relative' }}>
-            {/* Drawer Button */}
 
+            {/* Drawer Button */}
             <Box sx={{ position: 'absolute', top: '2%', right: '2%' }}>
                 <Button
                     onClick={() => setDrawerState(true)}
@@ -64,7 +94,7 @@ const MyPlayer = () => {
                     sx={{ py: 1 }}
                     variant="contained"
                     endIcon={<Icon>library_music</Icon>}>
-                    Library
+                    Playlist
                 </Button>
             </Box>
 
@@ -82,4 +112,4 @@ const MyPlayer = () => {
     );
 };
 
-export default MyPlayer;
+export default MyPlaylist;

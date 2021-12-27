@@ -8,7 +8,7 @@ const Song = ({ currentSong }) => {
     return (
         <>
             <Box sx={{
-                minHeight: '60vh',
+                minHeight: '70vh',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',

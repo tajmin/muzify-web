@@ -9,10 +9,12 @@ import { grey, red } from '@mui/material/colors';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearPlayList } from '../../redux/slices/songSlice';
 import LatestNews from './LatestNews/LatestNews';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const myPlayList = useSelector((state) => state.songs.myPlaylist);
     const dispatch = useDispatch();
+    let navigate = useNavigate();
     return (
         <>
             <Box sx={{
@@ -36,7 +38,7 @@ const Home = () => {
                     flexDirection: 'column'
                 }}>
 
-                <Badge
+                <Badge onClick={() => navigate('/my-playlist')}
                     sx={{
                         color: grey[700],
                         cursor: 'pointer',

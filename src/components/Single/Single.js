@@ -28,7 +28,7 @@ const Single = ({ single }) => {
                     src={cover}
                     alt="album cover"
                 />
-                <Tooltip onClick={() => dispatch(addToPlayList(single))} title="Add to Favorite" placement="top">
+                <Tooltip onClick={() => dispatch(addToPlayList(single))} title="Add to Playlist" placement="top">
                     <Fab className='add-btn gradientThemeBg'
                         sx={{
                             transition: 'all 0.3s ease-in',
