@@ -28,15 +28,13 @@ const Home = () => {
                     backgroundColor: grey[100],
                     py: 2.25,
                     px: 1,
-                    zIndex: 11111,
+                    zIndex: 11,
                     borderRadius: '1.75rem',
                     boxShadow: 3,
                     display: 'flex',
                     flexDirection: 'column'
                 }}>
-                {/* <IconButton sx={{ margin: '0 auto', boxShadow: 3 }} size="large" edge="start" color="inherit" aria-label="menu" >
-                    <Icon sx={{ fontSize: 30, color: '#e7e7e7' }}>library_music</Icon>
-                </IconButton> */}
+
                 <Badge
                     sx={{
                         color: grey[700],
