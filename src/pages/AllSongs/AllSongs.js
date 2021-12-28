@@ -3,13 +3,16 @@ import { grey, red } from '@mui/material/colors';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../components/Shared/Footer/Footer';
 import Navbar from '../../components/Shared/Navbar/Navbar';
 import Single from '../../components/Single/Single';
 import featuredAlbum from '../../images/featured.jpg'
 import { clearPlayList, fetchAllSongs } from '../../redux/slices/songSlice';
+import spinner from '../../images/spinner.gif'
 
 const AllSongs = () => {
     const singles = useSelector((state) => state.songs.songs);
+    const isLoading = useSelector((state) => state.songs.isLoading);
     const dispatch = useDispatch();
     const myPlayList = useSelector((state) => state.songs.myPlaylist);
     let navigate = useNavigate();
@@ -18,6 +21,22 @@ const AllSongs = () => {
     useEffect(() => {
         dispatch(fetchAllSongs())
     }, [])
+
+    //spinner
+    if (isLoading) {
+        return (
+            <Box
+                sx={{
+                    backgroundColor: '#000',
+                    height: '100vh',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                <img style={{ margin: '0 auto' }} src={spinner} alt="" />
+            </Box>
+        )
+    }
 
     return (
         <Box>
@@ -64,7 +83,7 @@ const AllSongs = () => {
                     </Grid>
                 </Container>
             </Box>
-            <Box sx={{ backgroundColor: '#000', py: 4 }}>
+            <Box sx={{ backgroundColor: '#000', pt: 4, pb: 10 }}>
                 <Container sx={{ px: { xs: 6, lg: 4 } }}>
                     <Typography variant="h4" component="div" fontSize={{ lg: 20, xs: 15 }}
                         sx={{
@@ -120,7 +139,7 @@ const AllSongs = () => {
                             },
                             "& .MuiBadge-badge": {
                                 color: "white",
-                                background: "linear-gradient(90deg, rgba(73,167,237,1) 0%, rgba(218,60,238,0.989233193277311) 100%)"
+                                background: "linear-gradient(166deg, rgba(76,163,227,1) 0%, rgba(206,75,223,0.9976365546218487) 100%)"
                             }
                         }}
                         badgeContent={myPlayList.length ? myPlayList.length : '0'}>
@@ -140,7 +159,7 @@ const AllSongs = () => {
                     </Icon>
                 </Box>
             </Box>
-
+            <Footer></Footer>
         </Box >
     );
 };

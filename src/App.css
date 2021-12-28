@@ -1,7 +1,13 @@
 
 .gradientThemeBg {
-    background: rgb(73,167,237);
-    background: linear-gradient(90deg, rgba(73,167,237,1) 0%, rgba(218,60,238,0.989233193277311) 100%);
+    background: rgb(76,163,227);
+    background: linear-gradient(166deg, rgba(76,163,227,1) 0%, rgba(206,75,223,0.9976365546218487) 100%);
+    transition: all 0.3s ease-in-out;
+}
+
+.gradientThemeBg:hover {
+    background: rgb(86,148,246);
+    background: linear-gradient(106deg, rgba(86,148,246,1) 0%, rgba(233,57,164,0.9976365546218487) 100%);
 }
 
 .album-cover {
@@ -10,7 +16,6 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-
 
 @media only screen and (max-width:600px) {
     .album-cover {

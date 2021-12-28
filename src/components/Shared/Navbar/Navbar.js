@@ -1,12 +1,12 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import { amber, lightBlue } from '@mui/material/colors';
+import { amber, grey, lightBlue } from '@mui/material/colors';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Drawer from "@mui/material/Drawer";
 import IconButton from '@mui/material/IconButton';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import avatar from '../../../images/avatar.jpg'
 
 import { Avatar, Button, Fab, Grid, Icon } from '@mui/material';
@@ -15,6 +15,7 @@ import useAuth from '../../../hooks/useAuth';
 const Navbar = () => {
     const [drawerState, setDrawerState] = React.useState(false);
     const { user, logout } = useAuth();
+    let navigate = useNavigate();
 
     const drawer = (
         <Box onClick={() => setDrawerState(false)} role="presentation">
@@ -171,8 +172,23 @@ const Navbar = () => {
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static" color="transparent">
                     <Toolbar>
-                        <Box sx={{ flexGrow: 1, py: 2, px: { xs: 1, md: 3 } }}>
-                            <Typography sx={{ fontWeight: 'bold', color: 'white' }} fontSize={{ lg: 42, xs: 26 }} variant="h1" component="div">
+                        <Box onClick={() => navigate('/')}
+                            sx={{
+                                flexGrow: 1,
+                                cursor: 'pointer',
+                                py: 2,
+                                px: { xs: 1, md: 3 },
+                            }}>
+                            <Typography
+                                sx={{
+                                    fontWeight: 'bold',
+                                    color: 'white',
+                                    transition: 'all 0.1s ease-in',
+                                    '&:hover': {
+                                        color: grey[300]
+                                    }
+                                }}
+                                fontSize={{ lg: 42, xs: 26 }} variant="h1" component="div">
                                 Muzify
                             </Typography>
                         </Box>

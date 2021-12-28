@@ -48,7 +48,7 @@ const Home = () => {
                         },
                         "& .MuiBadge-badge": {
                             color: "white",
-                            background: "linear-gradient(90deg, rgba(73,167,237,1) 0%, rgba(218,60,238,0.989233193277311) 100%)"
+                            background: "linear-gradient(166deg, rgba(76,163,227,1) 0%, rgba(206,75,223,0.9976365546218487) 100%)"
                         }
                     }}
                     badgeContent={myPlayList.length ? myPlayList.length : '0'}>

@@ -5,15 +5,33 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllSongs } from '../../../redux/slices/songSlice';
 import Single from '../../../components/Single/Single';
 import { useNavigate } from 'react-router-dom';
+import spinner from '../../../images/spinner.gif'
 
 const NewRelease = () => {
     const singles = useSelector((state) => state.songs.songs);
+    const isLoading = useSelector((state) => state.songs.isLoading);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(fetchAllSongs())
     }, [])
+
+    //spinner
+    if (isLoading) {
+        return (
+            <Box
+                sx={{
+                    backgroundColor: '#000',
+                    height: '100vh',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                <img style={{ margin: '0 auto' }} src={spinner} alt="" />
+            </Box>
+        )
+    }
 
     return (
         <Box sx={{ backgroundColor: '#000', py: 4 }}>
