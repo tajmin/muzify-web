@@ -1,4 +1,4 @@
-import { Button, Drawer, Grid, Icon, IconButton, Box } from '@mui/material';
+import { Button, Drawer, Grid, Icon, Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import Player from '../../components/Player/Player';
 import Song from '../../components/Song/Song';
 import { fetchAllSongs } from '../../redux/slices/songSlice';
 import spinner from '../../images/spinner.gif'
+import { Link } from 'react-router-dom';
 
 const MyPlayer = () => {
     const songs = useSelector((state) => state.songs.songs);
@@ -23,7 +24,23 @@ const MyPlayer = () => {
 
     const drawer = (
         <Box onClick={() => setDrawerState(false)} sx={{ width: { xs: 225, lg: 400 } }} role="presentation">
-            <Button>Home</Button>
+            <Button component={Link} to={'/'}
+                sx={{
+                    my: 2,
+                    float: 'right',
+                    mr: 1,
+                    border: '1px solid black',
+                    color: 'black',
+                    transition: 'all 0.3s ease-out',
+                    '&:hover': {
+                        border: '1px solid black',
+                        backgroundColor: 'black',
+                        color: 'white',
+                    }
+                }}
+                variant="outlined">
+                Home
+            </Button>
             <Grid container spacing={1}>
                 {
                     songs?.map(song => <Grid key={song._id} item xs={12}>

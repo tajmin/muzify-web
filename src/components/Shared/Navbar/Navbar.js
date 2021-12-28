@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
 import avatar from '../../../images/avatar.jpg'
 
-import { Avatar, Fab, Grid, Icon } from '@mui/material';
+import { Avatar, Button, Fab, Grid, Icon } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
 
 const Navbar = () => {
@@ -112,6 +112,21 @@ const Navbar = () => {
                             fontSize={{ lg: 100, xs: 50 }} variant="h1" component="div">
                             My Playlist
                         </Typography>
+                        <Typography as={Link} to={'/all-songs'}
+                            sx={{
+                                fontWeight: 'bold',
+                                color: amber[400],
+                                my: 1.5,
+                                textDecoration: 'none',
+                                transition: 'all 0.3s ease-in',
+                                '&:hover': {
+                                    color: lightBlue[400],
+                                    transform: 'translate(-1rem, 0)'
+                                }
+                            }}
+                            fontSize={{ lg: 100, xs: 50 }} variant="h1" component="div">
+                            All Songs
+                        </Typography>
 
                         {user?.email && <Typography onClick={logout}
                             sx={{
@@ -168,6 +183,15 @@ const Navbar = () => {
                                     src={user?.photoURL ? user?.photoURL : avatar}
                                     sx={{ width: 40, height: 40, display: 'inline-block', mr: 2 }}
                                 />
+                            }
+                            {
+                                !user?.email && <Button
+                                    component={Link} to={'/sign-up'}
+                                    sx={{ px: 1.5, py: 0.75, mr: 2, backgroundColor: amber[400] }}
+                                    variant="contained"
+                                >
+                                    Sign Up
+                                </Button>
                             }
                             <IconButton onClick={() => setDrawerState(true)} size="large" edge="start" color="inherit" aria-label="menu" >
                                 <Icon sx={{ fontSize: 30, color: '#e7e7e7' }}>menu</Icon>

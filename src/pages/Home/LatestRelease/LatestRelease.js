@@ -47,7 +47,7 @@ const NewRelease = () => {
                     </Grid>
                 </Box>
                 <Typography
-                    onClick={() => navigate('/login')}
+                    onClick={() => navigate('/all-songs')}
                     variant="h4"
                     component="div"
                     fontSize={{ lg: 20, xs: 15 }}

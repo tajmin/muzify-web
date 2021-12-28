@@ -4,7 +4,7 @@ const useSongs = () => {
     const [songs, setSongs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/songs')
+        fetch('https://murmuring-brook-63531.herokuapp.com/songs')
             .then(res => res.json())
             .then(data => setSongs(data))
     }, [])

@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchAllSongs = createAsyncThunk(
     'song/fetchSongs',
     async () => {
-        const response = await fetch('http://localhost:5000/songs').then(res => res.json())
+        const response = await fetch('https://murmuring-brook-63531.herokuapp.com/songs').then(res => res.json())
         return response;
     }
 )
